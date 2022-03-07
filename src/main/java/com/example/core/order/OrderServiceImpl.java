@@ -1,11 +1,8 @@
 package com.example.core.order;
 
 import com.example.core.discount.DiscountPoliy;
-import com.example.core.discount.FixDiscountPoliy;
-import com.example.core.discount.RateDiscountPolicy;
 import com.example.core.member.Member;
 import com.example.core.member.MemberRepository;
-import com.example.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
