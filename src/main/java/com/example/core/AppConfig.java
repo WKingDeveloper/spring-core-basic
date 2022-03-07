@@ -1,7 +1,6 @@
 package com.example.core;
 
 import com.example.core.discount.DiscountPoliy;
-import com.example.core.discount.FixDiscountPoliy;
 import com.example.core.discount.RateDiscountPolicy;
 import com.example.core.member.MemberRepository;
 import com.example.core.member.MemberService;
