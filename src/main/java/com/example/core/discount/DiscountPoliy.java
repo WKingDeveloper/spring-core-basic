@@ -1,6 +1,7 @@
 package com.example.core.discount;
 
 import com.example.core.member.Member;
+import org.springframework.stereotype.Component;
 
 public interface DiscountPoliy {
 
