@@ -1,7 +1,7 @@
 package com.example.core.order;
 
 import com.example.core.AppConfig;
-import com.example.core.discount.RateDiscountPolicy;
+import com.example.core.discount.FixDiscountPolicy;
 import com.example.core.member.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,4 +32,9 @@ public class OrderServiceTest {
 
     }
 
+    @Test
+    void fieldInjectionTest() {
+        OrderServiceImpl orderService = new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
+//        orderService.createOrder(1L, "iteamA",10000);
+    }
 }

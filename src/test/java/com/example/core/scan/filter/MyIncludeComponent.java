@@ -1,4 +1,4 @@
-package com.example.scan.filter;
+package com.example.core.scan.filter;
 
 import java.lang.annotation.*;
 

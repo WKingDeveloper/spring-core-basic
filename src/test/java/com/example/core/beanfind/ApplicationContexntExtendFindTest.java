@@ -1,10 +1,8 @@
 package com.example.core.beanfind;
 
-import com.example.core.AppConfig;
-import com.example.core.discount.DiscountPoliy;
-import com.example.core.discount.FixDiscountPoliy;
+import com.example.core.discount.DiscountPolicy;
+import com.example.core.discount.FixDiscountPolicy;
 import com.example.core.discount.RateDiscountPolicy;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
@@ -25,13 +23,13 @@ public class ApplicationContexntExtendFindTest {
     @DisplayName("부모 타입으로 조회시 자식이 둘 이상 있으면 중복 오류가 발생한다")
     void findBeanByParentTypeDulicate() {
         assertThrows(NoUniqueBeanDefinitionException.class,
-                ()-> ac.getBean(DiscountPoliy.class));
+                ()-> ac.getBean(DiscountPolicy.class));
     }
 
     @Test
     @DisplayName("부모 타입으로 조회시 자식이 둘 이상 있으면 중복 오류가 발생한다")
     void findBeanByParentTypeBeanName() {
-        DiscountPoliy rateDiscountPolicy = ac.getBean("rateDiscountPolicy", DiscountPoliy.class);
+        DiscountPolicy rateDiscountPolicy = ac.getBean("rateDiscountPolicy", DiscountPolicy.class);
         assertThat(rateDiscountPolicy).isInstanceOf(RateDiscountPolicy.class);
     }
 
@@ -45,7 +43,7 @@ public class ApplicationContexntExtendFindTest {
     @Test
     @DisplayName("부모타입으로 모두 조회")
     void findBeanByParentType() {
-        Map<String, DiscountPoliy> beansOfType = ac.getBeansOfType(DiscountPoliy.class);
+        Map<String, DiscountPolicy> beansOfType = ac.getBeansOfType(DiscountPolicy.class);
         assertThat(beansOfType.size()).isEqualTo(2);
         for (String key : beansOfType.keySet()) {
             System.out.println("key = " + key + " value = "+ beansOfType.get(key));
@@ -64,12 +62,12 @@ public class ApplicationContexntExtendFindTest {
     static class TestConfig {
 
         @Bean
-        public DiscountPoliy rateDiscountPolicy() {
+        public DiscountPolicy rateDiscountPolicy() {
             return new RateDiscountPolicy();
         }
         @Bean
-        public DiscountPoliy fixDiscountPolicy() {
-            return new FixDiscountPoliy();
+        public DiscountPolicy fixDiscountPolicy() {
+            return new FixDiscountPolicy();
         }
     }
 

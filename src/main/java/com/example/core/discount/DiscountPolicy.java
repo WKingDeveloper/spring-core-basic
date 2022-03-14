@@ -1,9 +1,8 @@
 package com.example.core.discount;
 
 import com.example.core.member.Member;
-import org.springframework.stereotype.Component;
 
-public interface DiscountPoliy {
+public interface DiscountPolicy {
 
     /**
      * @return 할인 대상 금액
